@@ -51,6 +51,7 @@ export class HotelListComponent implements OnInit {
     }
   ]
   public showBadge: boolean =false;
+  public hotelFilter: string | undefined;
   constructor() { }
 
   ngOnInit(): void {

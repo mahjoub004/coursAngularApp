@@ -1,11 +1,24 @@
 <div class="container">
   <h4> == Hotel List ==</h4>
 
-  <span class="badge text-bg-success"
-  style="cursor: pointer;"
-  (click)="toggleIsNewBadge()">
-  <i class="fa {{showBadge ? 'fa-low-vision' : 'fa-eye'}}" aria-hidden="true"></i>
-  {{showBadge ? 'cacher' : 'afficher'}} nouveau</span>
+  <span class="badge text-bg-success" style="cursor: pointer;" (click)="toggleIsNewBadge()">
+    <i class="fa {{showBadge ? 'fa-low-vision' : 'fa-eye'}}" aria-hidden="true"></i>
+    {{showBadge ? 'cacher' : 'afficher'}} nouveau</span>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <span class="mt-4">filter actuel : <b>{{hotelFilter}}</b></span>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" [(ngModel)]="hotelFilter">
+      </div>
+    </div>
+
+  </div>
+
+
 </div>
 
 <div class="container d-flex flex-wrap" *ngIf="hotels && hotels.length > 0">
