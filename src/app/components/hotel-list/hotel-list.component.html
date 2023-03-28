@@ -1,1 +1,21 @@
-<p>hotel-list works!</p>
+<div class="container">
+  <h4> == Hotel List ==</h4>
+
+  <span class="badge text-bg-success"
+  style="cursor: pointer;"
+  (click)="toggleIsNewBadge()">
+  <i class="fa {{showBadge ? 'fa-low-vision' : 'fa-eye'}}" aria-hidden="true"></i>
+  {{showBadge ? 'cacher' : 'afficher'}} nouveau</span>
+</div>
+
+<div class="container d-flex flex-wrap" *ngIf="hotels && hotels.length > 0">
+
+  <div class="card mt-5 m-3" style="width: 18rem; " *ngFor="let hotel of hotels">
+    <img src="{{hotel.imageUrl}}" [title]="hotel.hotelName" class="card-img-top" [alt]="hotel.hotelName">
+    <div class="card-body">
+      <h5 class="card-title">{{hotel.hotelName}}</h5>
+      <p class="card-text">{{hotel.description}}</p>
+      <span class="badge text-bg-info" *ngIf="showBadge">Nouveau</span>
+    </div>
+  </div>
+</div>
