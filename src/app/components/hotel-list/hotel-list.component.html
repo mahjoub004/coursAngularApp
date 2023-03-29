@@ -17,9 +17,13 @@
     </div>
 
   </div>
-
-
+  <div class="alert alert-info" role="alert">
+    {{receivedRating}}
+  </div>
 </div>
+
+
+
 
 <div class="container d-flex flex-wrap" *ngIf="hotels && hotels.length > 0">
 
@@ -28,8 +32,9 @@
     <div class="card-body">
       <h5 class="card-title">{{hotel.hotelName | uppercase}}</h5>
       <p class="card-text">{{hotel.description}}</p>
-      <p class="card-text">{{hotel.price | currency  : 'EUR' : 'symbol' : '1.2-2': 'fr' | replaceComma }}</p>
-      <app-star-rating [rating]="hotel.rating"></app-star-rating>
+      <p class="card-text">{{hotel.price | currency : 'EUR' : 'symbol' : '1.2-2': 'fr' | replaceComma }}</p>
+      <app-star-rating [rating]="hotel.rating" (starRatingClicked)="receiveRatingClicked($event)">
+      </app-star-rating>
       <span class="badge text-bg-info" *ngIf="showBadge">Nouveau</span>
     </div>
   </div>
