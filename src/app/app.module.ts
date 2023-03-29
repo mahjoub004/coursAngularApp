@@ -8,13 +8,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HotelListComponent } from './components/hotel-list/hotel-list.component';
 import { ReplaceComma } from './shared/pipes/replace-comma.pipe';
+import { StarRatingComponent } from './shared/communs/star-rating/star-rating.component';
 
 registerLocaleData(localeFr, 'fr');
 @NgModule({
   declarations: [
     AppComponent,
     HotelListComponent,
-    ReplaceComma
+    ReplaceComma,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,

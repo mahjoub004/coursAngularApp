@@ -1,0 +1,12 @@
+.star-container{
+overflow: hidden;
+cursor: pointer;
+}
+.fa-star{
+  width: 25px;
+  font-size: 20px;
+}
+.star-wrapper{
+  width: 125px;
+  cursor: pointer;
+}
