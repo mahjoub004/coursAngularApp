@@ -7,12 +7,14 @@ import  localeFr  from "@angular/common/locales/fr";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HotelListComponent } from './components/hotel-list/hotel-list.component';
+import { ReplaceComma } from './shared/pipes/replace-comma.pipe';
 
 registerLocaleData(localeFr, 'fr');
 @NgModule({
   declarations: [
     AppComponent,
-    HotelListComponent
+    HotelListComponent,
+    ReplaceComma
   ],
   imports: [
     BrowserModule,
