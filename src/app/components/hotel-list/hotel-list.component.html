@@ -23,7 +23,7 @@
 
 <div class="container d-flex flex-wrap" *ngIf="hotels && hotels.length > 0">
 
-  <div class="card mt-5 m-3" style="width: 18rem; " *ngFor="let hotel of hotels">
+  <div class="card mt-5 m-3" style="width: 18rem; " *ngFor="let hotel of filteredHotels">
     <img src="{{hotel.imageUrl}}" [title]="hotel.hotelName" class="card-img-top" [alt]="hotel.hotelName">
     <div class="card-body">
       <h5 class="card-title">{{hotel.hotelName | uppercase}}</h5>
