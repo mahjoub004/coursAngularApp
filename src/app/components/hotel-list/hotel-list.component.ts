@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Ihotel } from 'src/app/interfaces/ihotel';
 
 @Component({
   selector: 'app-hotel-list',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HotelListComponent implements OnInit {
 
-  hotels: any[] = [
+  hotels: Ihotel[] = [
     {
           "hotelId": 1,
           "hotelName": "Buea sweet life",
@@ -55,6 +56,7 @@ export class HotelListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+      console.log(this.hotelFilter);
 
   }
    /**
