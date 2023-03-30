@@ -7,10 +7,16 @@
            <h5 class="card-title">{{hotel.hotelName}}</h5>
            <p class="mt-5"><strong>Description</strong> :{{hotel.description}}</p>
            <p class="mt-5"><strong>Prix</strong> :{{hotel.price}} €</p>
-       
+
            <app-star-rating
            [rating]="hotel.rating">
           </app-star-rating>
+
+          <button type="button" class="btn btn-dark mt-5" (click)="backToList()" > <!-- [routerLink]="['/hotels']" -->
+            <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
+            Retour à la liste
+          </button>
+
     </div>
   </div>
 </div>

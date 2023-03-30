@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { Ihotel } from 'src/app/interfaces/ihotel';
 import { HotelListService } from 'src/app/services/hotel-list-service/hotel-list-service.service';
 
@@ -13,20 +13,24 @@ export class HotelDetailComponent implements OnInit {
   public hotel: Ihotel | undefined = <Ihotel>{}  ;
 
   constructor(private route : ActivatedRoute,
-              private hotelService: HotelListService) { }
+              private hotelService: HotelListService,
+              private router: Router) { }
 
   ngOnInit(): void {
     const id: number = +this.route.snapshot.paramMap.get('id')!;
     // '+' pour parser le string a un nombre
     // '!' Object is possibly 'null'
-
-
     this.hotelService.getHotels().subscribe((hotels:Ihotel[]) =>{
 
       this.hotel = hotels.find(hotel => hotel.hotelId === id);
         console.log('hotel ' + JSON.stringify(this.hotel ));
     })
 
+  }
+
+  //deuxieme method pour la navigation
+  backToList(): void{
+      this.router.navigate(['/hotels']);
   }
 
 }

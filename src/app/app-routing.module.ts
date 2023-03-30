@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { HotelDetailComponent } from './components/hotel-detail/hotel-detail.component';
 import { HotelListComponent } from './components/hotel-list/hotel-list.component';
+import { HotelDetailGuard } from './guard/hotel-detail-guard.guard';
 
 const routes: Routes = [
-  {path:'hotels/:id' , component: HotelDetailComponent},
+  {path:'hotels/:id' , component: HotelDetailComponent,
+    canActivate:[HotelDetailGuard]},
   {path:'hotels' , component: HotelListComponent},
   {path:'home' , component: HomeComponent},
   {path:'',redirectTo:'home' , pathMatch:'full'},
