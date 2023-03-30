@@ -33,10 +33,16 @@
       <h5 class="card-title">{{hotel.hotelName | uppercase}}</h5>
       <p class="card-text">{{hotel.description}}</p>
       <p class="card-text">{{hotel.price | currency : 'EUR' : 'symbol' : '1.2-2': 'fr' | replaceComma }}</p>
+      <div class="d-flex justify-content-between align-items-baseline">
       <app-star-rating
-      [rating]="hotel.rating"
-      (starRatingClicked)="receiveRatingClicked($event)">
+          [rating]="hotel.rating"
+          (starRatingClicked)="receiveRatingClicked($event)">
       </app-star-rating>
+
+      <i class="fa fa-arrow-circle-o-right mt-5" style="font-size: 30px;cursor: pointer;"
+      [routerLink]="['/hotels' , hotel.hotelId]"></i>
+      </div>
+
       <span class="badge text-bg-info" *ngIf="showBadge">Nouveau</span>
     </div>
   </div>
