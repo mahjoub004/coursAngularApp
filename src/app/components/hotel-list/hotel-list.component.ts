@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Ihotel } from 'src/app/interfaces/ihotel';
-import { HotelListServiceService } from 'src/app/services/hotel-list-service/hotel-list-service.service';
+import { HotelListService } from 'src/app/services/hotel-list-service/hotel-list-service.service';
 
 @Component({
   selector: 'app-hotel-list',
@@ -8,7 +8,8 @@ import { HotelListServiceService } from 'src/app/services/hotel-list-service/hot
   styleUrls: ['./hotel-list.component.css']
 })
 export class HotelListComponent implements OnInit {
-    constructor(private hotelsService: HotelListServiceService) { }
+
+    constructor(private hotelsService: HotelListService) { }
 
   hotels: Ihotel[] = [];
 
@@ -20,11 +21,20 @@ export class HotelListComponent implements OnInit {
 
   public receivedRating: string| undefined;
 
+  public errMsg : string | undefined;
+
 
 
   ngOnInit(): void {
-    this.hotels = this.hotelsService.gestHotels();
-    this.filteredHotels = this.hotels
+    this.hotelsService.getHotels().subscribe({
+        next: hotels => {       // next() : recevoir a chaque fois l'objet qu'etais transmis par l'observable
+             this.hotels = hotels,
+             this.filteredHotels = this.hotels
+        },
+
+        error: err => this.errMsg = err
+    });
+
     this.hotelFilter = ""
   }
    /**
